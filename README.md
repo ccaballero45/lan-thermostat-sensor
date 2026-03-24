@@ -43,6 +43,7 @@ Verify
 
 In a terminal: mosquitto_sub -h -t home/temperature -v
 Expect JSON every ~5s. Dashboard gauges and charts should update.
+
 Troubleshooting
 
 ESP rc = -2: broker unreachable. Check , port 1883, firewall, Mosquitto running.
