@@ -16,6 +16,7 @@ Arduino IDE + ESP8266 core + CP210x driver
 Mosquitto (Windows)
 Node‑RED + node-red-dashboard
 Wi‑Fi (ESP8266 and PC on same LAN)
+
 Setup
 
 Firmware (ESP8266)
