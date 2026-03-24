@@ -1,5 +1,5 @@
 
-ESP8266 reads a DHT22 sensor and publishes JSON (device, t_c, h) over MQTT every ~5s. Mosquitto runs on your PC; Node‑RED shows live gauges and charts at http://127.0.0.1:1880/ui. No SQL; if storage is added later, I’ll avoid SQL and use a simple file/non‑SQL option.
+ESP8266 (Can be bought in amazon) reads a DHT22 sensor(can be bought at Amazon) and publishes JSON (device, t_c, h) over MQTT every ~5s. Mosquitto runs on your PC; Node‑RED shows live gauges and charts at http://127.0.0.1:1880/ui. No SQL; if storage is added later, I’ll avoid SQL and use a simple file/non‑SQL option.
 
 
 
