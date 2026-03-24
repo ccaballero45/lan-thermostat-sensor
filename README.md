@@ -7,7 +7,8 @@ firmware/esp8266_dht22_mqtt.ino
 nodered/flow.json
 mosquitto/mosquitto.conf
 scripts/Start-ThermostatDashboard.ps1
-docs/screenshots/ (serial_ok.png, mosquitto_sub.png, nodered_flow.png, nodered_ui.png)
+
+
 Requirements
 
 Windows 10/11
