@@ -1,0 +1,262 @@
+[
+    {
+        "id": "93ba1c9964699bb8",
+        "type": "tab",
+        "label": "Temp UI"
+    },
+    {
+        "id": "4c940b6ed0cd33bd",
+        "type": "mqtt in",
+        "z": "93ba1c9964699bb8",
+        "name": "TempIn",
+        "topic": "home/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "64faa3a1fcc15250",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 80,
+        "wires": [
+            [
+                "a5ea419cf0e9dbe7",
+                "87ed76c527c20960"
+            ]
+        ]
+    },
+    {
+        "id": "a5ea419cf0e9dbe7",
+        "type": "json",
+        "z": "93ba1c9964699bb8",
+        "name": "Parse JSON",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "0e2685c5323c3217",
+                "2e734a24fb056ecd",
+                "c02e06e40d8efb83",
+                "1bceb43c0e40e7fe"
+            ]
+        ]
+    },
+    {
+        "id": "87ed76c527c20960",
+        "type": "debug",
+        "z": "93ba1c9964699bb8",
+        "name": "Raw",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 130,
+        "wires": []
+    },
+    {
+        "id": "0e2685c5323c3217",
+        "type": "ui_gauge",
+        "z": "93ba1c9964699bb8",
+        "name": "Temp °C",
+        "group": "a2704385289c594b",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Temperature (°C)",
+        "label": "°C",
+        "format": "{{payload.t_c}}",
+        "min": 0,
+        "max": 50,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2e734a24fb056ecd",
+        "type": "ui_gauge",
+        "z": "93ba1c9964699bb8",
+        "name": "Humidity %",
+        "group": "a2704385289c594b",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity (%)",
+        "label": "%",
+        "format": "{{payload.h}}",
+        "min": 0,
+        "max": 100,
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c02e06e40d8efb83",
+        "type": "change",
+        "z": "93ba1c9964699bb8",
+        "name": "t_c → number",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.t_c",
+                "tot": "msg"
+            }
+        ],
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "f308058a7344880f"
+            ]
+        ]
+    },
+    {
+        "id": "1bceb43c0e40e7fe",
+        "type": "change",
+        "z": "93ba1c9964699bb8",
+        "name": "h → number",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.h",
+                "tot": "msg"
+            }
+        ],
+        "x": 510,
+        "y": 200,
+        "wires": [
+            [
+                "7999ae1facb024e3"
+            ]
+        ]
+    },
+    {
+        "id": "f308058a7344880f",
+        "type": "ui_chart",
+        "z": "93ba1c9964699bb8",
+        "name": "Temp °C Chart",
+        "group": "a2704385289c594b",
+        "order": 3,
+        "width": 12,
+        "height": 6,
+        "label": "Temperature (°C) Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": "12",
+        "removeOlderUnit": "60",
+        "outputs": 1,
+        "x": 760,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7999ae1facb024e3",
+        "type": "ui_chart",
+        "z": "93ba1c9964699bb8",
+        "name": "Humidity % Chart",
+        "group": "a2704385289c594b",
+        "order": 4,
+        "width": 12,
+        "height": 6,
+        "label": "Humidity (%) Over Time",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "No data",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": "12",
+        "removeOlderUnit": "60",
+        "outputs": 1,
+        "x": 770,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "64faa3a1fcc15250",
+        "type": "mqtt-broker",
+        "name": "Local",
+        "broker": "127.0.0.1",
+        "port": "1883",
+        "clientid": "nodered-1",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a2704385289c594b",
+        "type": "ui_group",
+        "name": "Sensors",
+        "tab": "tabUi",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "tabUi",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "0f4b3f9e1163221b",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

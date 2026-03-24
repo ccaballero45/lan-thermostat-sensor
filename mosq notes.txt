@@ -1,0 +1,5 @@
+Stop the Windows service:
+net stop mosquitto
+
+Start Mosquitto in foreground with your config:
+"C:\Program Files\Mosquitto\mosquitto.exe" -c "C:\Program Files\Mosquitto\mosquitto.conf" -v
