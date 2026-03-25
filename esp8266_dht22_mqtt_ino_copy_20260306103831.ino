@@ -5,8 +5,8 @@
 #include <DHT.h>
 
 // Wi‑Fi + MQTT
-#define WIFI_SSID   "JULINGTON UNIT 255"
-#define WIFI_PASS   "8d4262e0f7f3e937"
+#define WIFI_SSID   "routername"
+#define WIFI_PASS   "wificode"
 #define MQTT_HOST   "192.168.1.139"   // PC IP running Mosquitto
 #define MQTT_PORT   1883
 #define CLIENT_ID   "esp8266-temp-1"
